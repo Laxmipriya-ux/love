@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For You, En Anbu Erumaade 🦍</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      text-align: center;
+      max-width: 600px;
+      position: relative;
+    }
+
+    h1 {
+      color: #e91e63;
+    }
+
+    .message, .quote, .love-note {
+      font-size: 1.1rem;
+      margin: 1rem 0;
+    }
+
+    .love-note {
+      background: #fff0f5;
+      padding: 1rem;
+      border-left: 5px solid #ff4081;
+      border-radius: 10px;
+      color: #333;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    button {
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 10px;
+      background-color: #ff4081;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #e91e63;
+    }
+
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 999;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: floatUp 3s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-600px) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Hello Erumaade 🦍</h1>
+    <p class="message">
+      I know you're feeling down about the placement. But let me remind you...
+    </p>
+    <h2>You are more than a job!</h2>
+    <p class="quote">
+      "Your value is not decided by the job you get, but the heart you carry and the effort you give."
+    </p>
+
+    <div class="love-note">
+      🌻 Kavala padatha, company attend pana mudiyala, select agalanu.<br />
+      Neraya time iruku, nalla padi. Kandippa kidaikum!<br /><br />
+      🕊 You are hardworking, and it pays off!<br />
+      Even if you fail, I still love you, support you, and cheer you up 💃🏻<br /><br />
+      🫀 Enaku neraya nambika iruku — ne nalla varuva!<br />
+      🪽 We will have a good life together, always.
+    </div>
+
+    <button onclick="cheerUp()">Click for a surprise 💌</button>
+    <div class="hearts" id="hearts"></div>
+  </div>
+
+  <script>
+    function cheerUp() {
+      alert("You are doing amazing, En anbu erumaade 🦍. I believe in you always! 💖");
+      launchHearts();
+    }
+
+    function launchHearts() {
+      const hearts = document.getElementById('hearts');
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.top = '100vh';
+        heart.style.animationDuration = (2 + Math.random() * 2) + 's';
+        hearts.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 3000);
+      }
+    }
+  </script>
+</body>
+</html>
